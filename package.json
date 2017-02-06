@@ -1,0 +1,36 @@
+{
+  "name": "atom-pac-proxy",
+  "version": "0.0.1",
+  "description": "Package to setup proxy by loading the Proxy PAC file",
+  "main": "build/pac-proxy.js",
+  "scripts": {
+    "test": "NODE_ENV=test mocha --reporter spec --bail --check-leaks test/"
+  },
+  "keywords": [
+    "atom",
+    "proxy",
+    "pac"
+  ],
+  "author": "Andreas Mairhofer",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.22.0",
+    "babelify": "^7.3.0",
+    "browserify": "^14.0.0",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-cache": "^0.4.5",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.1",
+    "mocha": "^3.2.0",
+    "mock-http-server": "^0.1.0",
+    "require-dir": "^0.3.1",
+    "should": "^11.2.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.9.0"
+  },
+  "dependencies": {
+    "pac-resolver": "^2.0.0"
+  }
+}
