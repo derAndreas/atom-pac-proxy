@@ -26,8 +26,8 @@ var getPACProxy = function getPACProxy(url, callback) {
     res.on('end', function () {
       callback(null, rawData);
     });
-  }).on('error', function (e) {
-    callback(error, null);
+  }).on('error', function (err) {
+    callback(err, null);
   });
 };
 
@@ -96,8 +96,18 @@ var atomPACProxy = function atomPACProxy() {
           throw err;
         }
 
-        npm.config.set('http-proxy', result.url);
-        npm.config.set('https-proxy', result.url);
+        if (!result || result.length === 0) {
+          throw new Error('No valid proxy informations found');
+        }
+
+        var p = proxy.shift();
+
+        if (p.type === 'direct') {
+          // pass, nothing to do
+        } else {
+          npm.config.set('http-proxy', p.url);
+          npm.config.set('https-proxy', p.url);
+        }
       });
     });
   });
