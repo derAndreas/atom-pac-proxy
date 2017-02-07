@@ -31,6 +31,8 @@ package itself does not need any externel modules to run.
 
 - find a way to get config options into the settings from atom
   to configure the PAC url not in the .js code
+- use something smaller than the `http` module to perform the GET request.
+  Seems like this is making the build huge.
 
 
 [pac-wikipedia]: http://wikipedia.org/wiki/Proxy_auto-config
